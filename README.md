@@ -1,7 +1,7 @@
 # pico-blink-easy
 Pico example which automatically download the SDK. 
 
-# Details
+# 説明
 このプログラムはRaspberryPi Picoのサンプルです。
 
 ビルド中にpico-sdkをダウンロードするため、あらかじめpico-sdkを
@@ -9,12 +9,12 @@ Pico example which automatically download the SDK.
 
 Ubuntu 22.04でテスト済みです。
 
-# Setup environment
+# ビルド環境の構築
 [rpi_pico_env_setup](https://github.com/suikan4github/rpi_pico_env_setup) のスクリプトを使って環境設定を行ってください。
 
 このスクリプトはビルドに必要なツール類をインストールします。
 
-# How to build in Linux Command Line
+# Linuxコマンドラインでのビルド
 コマンドラインから実行する場合は、以下のコマンドを実行してください。
 ```bash
 # Configure project
@@ -30,12 +30,12 @@ cmake --build build
 
 ビルド結果はbuildサブディレクトリに出力されます。
 
-# How to build in VS Code
-## Configure VS Code
+# VS Codeでのビルド(Linux, WSL)
+## VS Codeの設定
 VS Codeの拡張機能に[C/C++ Extention Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack)をインストールしてください。
 
 この拡張機能はC++言語のシンタックス・ハイライティングやIntelli-senseによる入力保管を行う他、CMake拡張機能も含んでいます。
-## Build
+## ビルド
 コマンドパレット(ctrl-shift-P)から、
 ```
 Cmake : Configure
@@ -53,3 +53,18 @@ arm-none-eabiではない場合には、ステータスバーの当該位置を�
 コンパイラを選び終わったら、ステータスバーのBuildをクリックすることでビルドすることができます。
 
 ビルド結果はbuildサブディレクトリに出力されます。
+
+# Windowsコマンドプロンプトでのビルド 
+
+```bash
+# Configure project
+mkdir build
+cd build
+cmake .. -G "NMake Makefiles"
+
+# Build project
+cd ..
+cmake --build build 
+```
+
+# VS Codeでのビルド(Windows)
