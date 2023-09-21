@@ -16,11 +16,15 @@ Ubuntu 22.04でテスト済みです。
 
 # How to build in Linux Command Line
 コマンドラインから実行する場合は、以下のコマンドを実行してください。
-```
+```bash
+# Configure project
 mkdir build
 cd build
 cmake ..
-make
+
+# Build project
+cd ..
+cmake --build build 
 ```
 この間、Pico-sdkのダウンロードも行うため、少し時間がかかります。
 
