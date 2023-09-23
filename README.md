@@ -56,15 +56,50 @@ arm-none-eabiではない場合には、ステータスバーの当該位置を�
 
 # Windowsコマンドプロンプトでのビルド 
 
-```bash
-# Configure project
+Windowsでビルドする場合、通常のコマンドプロンプトではビルドできません。必ず専用のPico_を使ってください。
+
+コマンドプロンプトが現れたらプロジェクトディレクトリに移ります。あとは、Linuxのときと同じです。
+
+```cmd
+REM Configure project
 mkdir build
 cd build
-cmake .. -G "NMake Makefiles"
+cmake .. 
 
-# Build project
+REM Build project
 cd ..
 cmake --build build 
 ```
+Windowsの場合も、Pico-sdkのダウンロードも行うため、少し時間がかかります。
+
+ビルド結果はbuildサブディレクトリに出力されます。
+
 
 # VS Codeでのビルド(Windows)
+## VS Codeの設定
+普段使いのVS Codeを起動してもビルドできません。WindowsのStartメニューからPiko_VS_Codeを起動してください。
+
+## VS Codeの設定
+VS Codeの拡張機能に[C/C++ Extention Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack)をインストールしてください。
+
+この拡張機能はC++言語のシンタックス・ハイライティングやIntelli-senseによる入力保管を行う他、CMake拡張機能も含んでいます。
+
+なお、インストールはローカルではなくWSLに対して行います。
+## ビルド
+コマンドパレット(ctrl-shift-P)から、
+```
+Cmake : Configure
+```
+を実行してください。CMake拡張機能が自動的にコンパイラを探し出してプロジェクトのコンフィギュレーションを行います。この間、Pico-sdkのダウンロードも行うため、少し時間がかかります。
+
+念の為、ステータスバーでコンパイラがGCC XX.X.X arm-none-eabiで有ることを確認してください。下の図の例ではGCC 10.3.1 arm-none-eabiになっています。
+
+![](image/Screenshot_startus_bar.png)
+
+arm-none-eabiではない場合には、ステータスバーの当該位置をクリックすることで、メニューバーからプルダウンが現れますので適切なコンパイラを選んでください。
+
+![](image/Screenshot_compiler_pull_down.png)
+
+コンパイラを選び終わったら、ステータスバーのBuildをクリックすることでビルドすることができます。
+
+ビルド結果はbuildサブディレクトリに出力されます。
