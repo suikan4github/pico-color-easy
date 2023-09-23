@@ -33,3 +33,4 @@
 
 # CMake
 build/
+pico-env-easy.code-workspace
