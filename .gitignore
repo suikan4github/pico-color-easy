@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+# CMake
+build/
+pico-env-easy.code-workspace
