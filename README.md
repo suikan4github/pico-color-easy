@@ -10,7 +10,7 @@ Pico example which automatically download the SDK.
 Ubuntu 22.04でテスト済みです。
 
 # ビルド環境の構築
-[rpi_pico_env_setup](https://github.com/suikan4github/rpi_pico_env_setup) のスクリプトを使って環境設定を行ってください。
+[pico-env-easy](https://github.com/suikan4github/pico-env-easy) のスクリプトを使って環境設定を行ってください。
 
 このスクリプトはビルドに必要なツール類をインストールします。
 
