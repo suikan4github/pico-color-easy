@@ -45,18 +45,22 @@ pico_sdk_init()
 # rest of your project
 
 # The original of this file can be found at : 
-# https://github.com/raspberrypi/pico-examples/blob/master/blink/CMakeLists.txt
+# https://github.com/raspberrypi/pico-examples/blob/master/color/CMakeLists.txt
 
-add_executable(blink
-        blink.c
+add_executable(color
+        color.c
         )
 
 # pull in common dependencies
-target_link_libraries(blink pico_stdlib)
+target_link_libraries(color 
+   pico_stdlib 
+   hardware_gpio
+   hardware_pwm
+   hardware_adc)
 
 # create map/bin/hex file etc.
-pico_add_extra_outputs(blink)
+pico_add_extra_outputs(color)
 
 # The Following command makes error outside the pico-examples framework. 
 # So removed. 
-# example_auto_set_url(blink)
+# example_auto_set_url(color)
