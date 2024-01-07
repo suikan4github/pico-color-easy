@@ -142,7 +142,7 @@ int main() {
     const uint adc_value = adc_read();
 
     // Set sleep duration from ADC value.
-    const int sleep_duration = (adc_value * 32.0 / 4096.0) + 1;
+    const int sleep_duration = 33 - (adc_value * 32.0 / 4096.0);
 
     // sleep to give the appropriate period.
     sleep_ms(sleep_duration);
