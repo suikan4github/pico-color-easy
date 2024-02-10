@@ -116,17 +116,17 @@ int main() {
     if (phase >= max_phase) phase = 0;
 
     // calc current phase. Each LED has 1/3 phase shifted.
-    const float red_phase = (phase) * (3.1415 * 2) / max_phase;
+    const float red_phase = (phase) * (3.1415f * 2) / max_phase;
     const float green_phase =
-        (phase + max_phase / 3) * (3.1415 * 2) / max_phase;
+        (phase + max_phase / 3) * (3.1415f * 2) / max_phase;
     const float blue_phase =
-        (phase + 2 * max_phase / 3) * (3.1415 * 2) / max_phase;
+        (phase + 2 * max_phase / 3) * (3.1415f * 2) / max_phase;
 
     // Calc duty from phase.
     // duty is 0..99
-    int red_duty = (sin(red_phase) + 1.0) * 50;
-    int green_duty = (sin(green_phase) + 1.0) * 50;
-    int blue_duty = (sin(blue_phase) + 1.0) * 50;
+    int red_duty = (sin(red_phase) + 1.0f) * 50;
+    int green_duty = (sin(green_phase) + 1.0f) * 50;
+    int blue_duty = (sin(blue_phase) + 1.0f) * 50;
 
     // If SWx is pushed, turn off the relevant LED.
     if (gpio_get(SW1) == 0) red_duty = 0;
@@ -142,7 +142,8 @@ int main() {
     const uint adc_value = adc_read();
 
     // Set sleep duration from ADC value.
-    const int sleep_duration = 33 - (adc_value * 32.0 / 4096.0);
+    const int sleep_duration =
+        17 - 16.0f * (adc_value * adc_value) / 4096.0f / 4096.0f;
 
     // sleep to give the appropriate period.
     sleep_ms(sleep_duration);
